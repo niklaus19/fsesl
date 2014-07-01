@@ -1,0 +1,52 @@
+Freeswitch -ESL
+
+Installation
+
+i.	untar the file using : tar -zvf Freeswitch-ESL.tar.gz
+
+
+ii.	To run this application an external library needs to be installed
+	
+		In the freeswitch source directory change to libs/esl and run:
+
+			make pymod
+			make pymod-install
+iii.	Install twisted
+		http://twistedmatrix.com/trac/wiki/Downloads
+		apt-get install python-twisted [debian] or yum install python-twisted
+		
+
+
+
+
+
+Configuration
+
+Basic configuration for connection to Freeswitch and path to logs needs to be configured in file fsesl.conf
+
+
+[Freeswitch]
+ipaddress = 127.0.0.1	; ip address of machine running freeswitch
+port = 8021 		; port
+password = ClueCon	; password
+
+[Log]
+path=/opt/Freeswitch-ESL/log/	; path of folder where log files are created
+
+
+
+Execution
+
+Go to directory Freeswitch-ESL and run
+
+twistd -y fsesl.py
+
+
+
+
+
+Upon calling  url X.X.X.X/calls or X.X.X.X/registrations, it will return a json response.
+
+In this case X.X.X.X will be the ip-address of machine running the program.
+
+
